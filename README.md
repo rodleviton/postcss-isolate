@@ -1,6 +1,3 @@
-
-![Swanky Logo](https://raw.githubusercontent.com/swanky-docs/swanky-docs/master/swanky.png)
-
 # Postcss Isolate
 > Isolate all styles to a specified namespace
 
