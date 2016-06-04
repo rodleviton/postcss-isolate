@@ -1,0 +1,51 @@
+{
+  "name": "postcss-isolate",
+  "description": "Isolate all styles to a specified namespace",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run clean && webpack",
+    "clean": "rimraf build/",
+    "commit": "git-cz",
+    "test": "mocha test/spec/unit/*.spec.js -w",
+    "test:single": "istanbul cover _mocha -- -R spec test/spec/unit/*.spec.js",
+    "check-coverage": "istanbul check-coverage --statements 0 --branches 0 --functions 0 --lines 0",
+    "report-coverage": "cat ./coverage/coverage.json | codecov",
+    "start": "node index.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "author": "Rod Leviton",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "3.5.0",
+    "codecov.io": "0.1.6",
+    "cz-conventional-changelog": "1.1.6",
+    "cz-customizable": "3.1.0",
+    "exact-semver": "1.2.0",
+    "istanbul": "0.4.3",
+    "ghooks": "1.2.1",
+    "mocha": "2.4.5",
+    "postcss": "5.0.21",
+    "semantic-release": "4.3.5",
+    "sinon": "1.17.4",
+    "validate-commit-msg": "2.6.1"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "exact-semver",
+      "commit-msg": "validate-commit-msg"
+    },
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": ".cz-config.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rodleviton/postcss-isolate.git"
+  },
+  "devDependencies": {
+    "semantic-release": "^4.3.5"
+  }
+}
