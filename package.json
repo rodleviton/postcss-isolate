@@ -46,6 +46,6 @@
     "url": "https://github.com/rodleviton/postcss-isolate.git"
   },
   "devDependencies": {
-    "semantic-release": "^4.3.5"
+    "semantic-release": "4.3.5"
   }
 }
