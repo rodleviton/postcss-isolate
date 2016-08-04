@@ -12,7 +12,7 @@ module.exports = postcss.plugin('postcss-isolate', function (opts) {
     return selector.match(exclusions);
   }
 
-  return function (css, result) {
+  return function (css /* result */) {
     css.walkRules(function (rule) {
 
       // Remove line breaks before turning selectors into array
@@ -32,7 +32,7 @@ module.exports = postcss.plugin('postcss-isolate', function (opts) {
         } else if (selector === bodySelector) {
           // body
           return `${rootWrapper} ${namespace}`;
-        } else if ((selector.indexOf(rootWrapper) || selector.indexOf(namespace)) {
+        } else if ((selector.indexOf(rootWrapper) > -1) || (selector.indexOf(namespace) > -1)) {
           // rootWrapper or namespace
           return selector;
         } else if (!isExclusion(selector)) {
