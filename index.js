@@ -32,6 +32,9 @@ module.exports = postcss.plugin('postcss-isolate', function (opts) {
         } else if (selector === bodySelector) {
           // body
           return `${rootWrapper} ${namespace}`;
+        } else if (selector === rootWrapper || selector === namespace) {
+          // rootWrapper or namespace
+          return selector;
         } else if (!isExclusion(selector)) {
           // !excluded selectors
           return `${rootWrapper} ${namespace} ${selector}`;
